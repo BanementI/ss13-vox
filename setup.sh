@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt install festival festlex-cmu festlex-poslex festlex-oald festvox-rablpc16k libestools2.5 unzip sox vorbis-tools ffmpeg python3 python3-pip -y
+
 # Doing build-tools
 echo "Installing build-tools"
 cd python-build-tools
@@ -26,3 +28,5 @@ find . -name '*.scm' | while read -r file; do
     "$file"
 done
 
+echo "Should be done!"
+echo "Move on to "Generating Sounds"
