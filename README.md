@@ -33,6 +33,12 @@ If words come out incorrectly pronounced, add the word to lexicon.txt following 
 ### TG-based Servers
 You may also wish to duplicate `announcements.txt` and `voxwords.txt` and modify them for TG's needs.  If you choose to do this, make sure to point to the new files in `config.yml`.
 
+### Where's my voices?
+1. `dist/sound/vox_fem/`
+
+### How do I make a PR out of this?
+Each time you run the code, it generates a file in `dist/code/modules/mob/living/silicon/ai/vox_sounds.dm`. Basically grab the new lines that's within the list, and copy-paste that into your desired codebase's `vox_sounds.dm`.
+
 # Changing Voices (UNTESTED)
 You can select which voice to use for each sex in `config.yml` in the `voices:` list.
 
