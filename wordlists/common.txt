@@ -1,0 +1,8 @@
+# VOX PHRASELIST
+#
+# Format:
+#filename = What you want VOX to say
+# If it's not pronouncing a word correctly, correct it with lexicon.txt
+# Do not specify a directory if you want it to go to sounds/vox_fem/.
+#
+fart
