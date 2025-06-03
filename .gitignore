@@ -16,7 +16,7 @@
 /cache
 /cachesfx.*
 /code
-/hts_tmp
+hts_temp/lib/
 /tmp
 dist/
 node_modules/
@@ -24,6 +24,5 @@ sound/
 upload.sh
 vnm.state
 yarn-error.log
-
 daemon.yml
 logs/daemon.log
