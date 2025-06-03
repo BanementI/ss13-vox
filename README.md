@@ -81,5 +81,6 @@ Coding standards change over time, and this repo is relatively slow to update.
 If you need different dm output, please see `templates/` and edit the appropriate file (`vglist.jinja` or `tglist.jinja`).  Once done, run `generate.sh` again.  Afterwards, please send us a PR so everyone else gets the update.
 
 # Credits
-N3X15: Created [python-build-tools](https://gitlab.com/N3X15/python-build-tools/), which this project relies on. It's MIT licensed, so it's included here for convenience.
-mc-oofert: Created the [new voxline PR to tgstation](https://github.com/tgstation/tgstation/pull/84499). He sent me his code a year ago, and only now I've gotten around to fixing it up to work for others. All changes Python-wise was made by him. He also changed it to exclusively generate fem voices.
+> N3X15: Created [python-build-tools](https://gitlab.com/N3X15/python-build-tools/), which this project relies on. It's MIT licensed, so it's included here for convenience.
+
+> mc-oofert: Created the [new voxline PR to tgstation](https://github.com/tgstation/tgstation/pull/84499). He sent me his code a year ago, and only now I've gotten around to fixing it up to work for others. All changes Python-wise was made by him. He also changed it to exclusively generate fem voices.
