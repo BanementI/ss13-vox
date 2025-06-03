@@ -2,21 +2,28 @@
 
 TTS-based announcer inspired by Half Life's announcement system.
 
-**This project was originally written in 2013 when I was still learning python, so it's a bit rough around the edges.** I am slowly trying to improve the code.
+**This project was originally written in 2013 when the original creator was still learning python, so it's a bit rough around the edges.** 
 
-**I AM UNABLE TO GET THIS WORKING ON UBUNTU 22.04 LTS DUE TO A PROBLEM WITH UBUNTU AND VIRTUALBOX.**  Please be patient while I work on this.
+This has been tested on WSL2 Ubuntu. You don't need a whole VM for it, look into Windows Subsystem for Linux.
 
 ## Installing
+1. Clone this repository, duh.
 
-**This system has only been tested on Ubuntu 20.04 (focal).** Therefore, this should be installed and run on an Ubuntu system. A VM (such as VMWare, VirtualBox, or Xen) is recommended, but not necessary.
+### Automated Installation
+1. Run `sudo bash setup.sh` 
 
-1. Run `sudo apt install python3 && pip3 install -U poetry && poetry install --no-root` to install and configure Python 3 for Ubuntu.
-1. Run `sudo python3 setup.py` to install and configure SoX, Festival, and oggenc.
-  * NOTE: During the install process, setup.py will download and install operating system packages, and install new Festival voices.
+### Manual Installation
+1. Run `apt install festival festlex-cmu festlex-poslex festlex-oald festvox-rablpc16k libestools2.5 unzip sox vorbis-tools ffmpeg python3 python3-pip -y` to get all the damned packages you need.
+3. Go into `hts_tmp` then do `for f in *.tar.*; do tar -xvf "$f"; done` (this loops through every directory. alternatively just unzip it all yourself, all goes into lib/)
+4. While still in `hts_tmp`, do `sudo cp -r lib/voices/us /usr/share/festival/voices/`
+5. You can't avoid using scripts, buddy. Exit out of `hts_tmp` and do `sudo bash fix.sh`.
+6. You're done!
 
 ## Generating Sounds
 
-### /vg/-based Servers
+### /vg/-based Servers (UNTESTED)
+1. Open `config.yml`
+1. Change `codebase` to `vg` so it'll generate the correct code for your server.
 Simply edit `wordlists/vg` to taste, and run generate.sh.
 
 Everything you need will end up in `dist/`. Note that old HL VOX sounds like `beep`, `bloop`, etc are not included and are expected to be in `sound/vox/`.
@@ -24,12 +31,9 @@ Everything you need will end up in `dist/`. Note that old HL VOX sounds like `be
 If words come out incorrectly pronounced, add the word to lexicon.txt following the guide at the top of the file. This will generate the required LISP script for you.
 
 ### TG-based Servers
-1. Open `config.yml`
-1. Change `codebase` to `tg` so it'll generate the correct code for your server.
-
 You may also wish to duplicate `announcements.txt` and `voxwords.txt` and modify them for TG's needs.  If you choose to do this, make sure to point to the new files in `config.yml`.
 
-# Changing Voices
+# Changing Voices (UNTESTED)
 You can select which voice to use for each sex in `config.yml` in the `voices:` list.
 
 ## Voice Sexes
@@ -50,18 +54,17 @@ Each voice requires manual tuning and fuckery in order to work with the standard
 
 # Adding to the List
 
-Simply edit the files in `wordlist/` according to the following format:
+Simply edit the `common.txt` in wordlists/, according to the following format:
 
 ```
-apple
-zebra
-# Comment bound to wordfile. It'll follow it around when organize.py is run.
-wordfile = This is a sample phrase that will be saved to wordfile.ogg
+monkey
+horse
 ```
 
-If it's a single letter, add it to the voxwords.txt as ```a = A.```
+# Words don't sound right
+If words are pronounced weirdly, you can specify this in `lexicon.txt`. Read `LEXICON-README.md` for info on that.
 
-# Testing Phrases
+# Testing Phrases (UNTESTED)
 
 To test a phrase as though it were from in-game, run (replace `$SEX` with `fem` or `mas`):
 
