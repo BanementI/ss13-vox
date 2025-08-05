@@ -7,7 +7,7 @@ tg:
     template: tglist.jinja
   sound: &standard
     old-vox: sound/vox/{ID}.wav
-    new-vox: sound/announcer/vox_{SEX}/{ID}.ogg
+    new-vox: sound/vox_{SEX}/{ID}.ogg
 vg:
   vox_data: code/vox_data.json
   vox_sounds:
@@ -15,3 +15,10 @@ vg:
     template: vglist.jinja
   sound:
     <<: *standard
+monke:
+  vox_data: code/vox.data.json
+  vox_sounds:
+    path: code/modules/mob/living/silicon/ai/vox_sounds.dm
+    template: monke.jinja
+  sound: &standard
+    new-vox: sound/announcer/vox_{SEX}/{ID}.ogg
