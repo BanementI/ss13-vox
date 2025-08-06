@@ -18,7 +18,7 @@ vg:
 monke:
   vox_data: code/vox.data.json
   vox_sounds:
-    path: code/modules/mob/living/silicon/ai/vox_sounds.dm
+    path: code/modules/vox/voices/_normal.dm
     template: monke.jinja
   sound: &standard
     new-vox: sound/announcer/vox_{SEX}/{ID}.ogg
