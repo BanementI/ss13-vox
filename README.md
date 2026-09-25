@@ -16,22 +16,26 @@ If you're using Arch or something else, then I suggest Docker.
 ### How2dockerhalpme
 1. Install docker via your package manager
 2. Ensure the docker service is running
-3. Run this: `sudo docker run -it --name debian-trixie debian:trixie`
-4. Wowie you're now in the docker container! Do `apt update` and then `apt install git nano`. Or whatever text editor you want.
-5. `<editor> /etc/apt/sources.list.d/debian.sources`
-6. Under "Suites: trixie trixie-updates" is "Components: main". Make it like this: `Components: main contrib non-free`
-7. Do `apt update` again. 
-8. Carry on as usual. How do you get back into it when you exit? I dunno.
+3. Make a directory where you'll be grabbing the bullshit you generate, like `$HOME/ss13-vox-docker`.
+4. Run this: `sudo docker run -it  -v "$HOME/ss13-vox-docker:/ss13-vox" --name debian-trixie debian:trixie` (yes, the root)
+5. Wowie you're now in the docker container! Do `apt update` and then `apt install git nano`. Or whatever text editor you want.
+6. `<editor> /etc/apt/sources.list.d/debian.sources`
+7. Under "Suites: trixie trixie-updates" is "Components: main". Make it like this: `Components: main contrib non-free`
+8. Do `apt update` again. 
+9. Carry on as usual. How do you get back into it when you exit? I dunno.
 
 
 ## Installing
 1. Clone this repository, duh.
 
 ### Automated Installation
-1. Run `sudo bash setup.sh` 
+1. Run `sudo bash setup.sh`
+2. `cd python-build-tools && sudo pip install . --break-system-packages && cd ..` to install its stupid specific build tools version. It's in the script, it fails for some reason.
+3. Move on to [Monkestation](#monkestation).
 
 ### Manual Installation
-1. Run `apt install festival festlex-cmu festlex-poslex festlex-oald festvox-rablpc16k libestools2.5 unzip sox vorbis-tools ffmpeg python3 python3-pip -y` to get all the damned packages you need.
+1. Run `apt install festival festlex-cmu festlex-poslex festlex-oald festvox-rablpc16k libestools2.5 unzip sox vorbis-tools ffmpeg python3 python3-pip python3-jinja2 git sudo -y` to get all the damned packages you need.
+2. `cd python-build-tools` then `sudo pip install . --break-system-packages` to install its stupid specific build tools version.
 3. Go into `hts_tmp` then do `for f in *.tar.*; do tar -xvf "$f"; done` (this loops through every directory. alternatively just unzip it all yourself, all goes into lib/)
 4. While still in `hts_tmp`, do `sudo cp -r lib/voices/us /usr/share/festival/voices/`
 5. You can't avoid using scripts, buddy. Exit out of `hts_tmp` and do `sudo bash fix.sh`.
@@ -52,10 +56,13 @@ If words come out incorrectly pronounced, add the word to lexicon.txt following 
 You may also wish to duplicate `announcements.txt` and `voxwords.txt` and modify them for TG's needs.  If you choose to do this, make sure to point to the new files in `config.yml`.
 
 ### Monkestation
-`config.yml` is pre-configured to generate Monkestation files.
+`config.yml` is pre-configured to generate Monkestation files, so ya don't gotta touch that. 
+
+To create voices, edit `wordlists/common.txt` with your funny words, then run `python3 create.py`.
+If words aren't generating the way you want, see [Words don't sound right](#Words-dont-sound-right)
 
 ### Where's my voices?
-1. `dist/sound/vox_fem/`
+`dist/sound/announcer/vox_fem/`
 
 ### How do I make a PR out of this?
 Each time you run the code, it generates a file in `dist/code/modules/mob/living/silicon/ai/vox_sounds.dm`. Basically grab the new lines that's within the list, and copy-paste that into your desired codebase's `vox_sounds.dm` and sort alphabetically. Good luck?
@@ -91,6 +98,7 @@ horse
 ```
 
 # Words don't sound right
+### googa
 If words are pronounced weirdly, you can specify this in `lexicon.txt`. Read `LEXICON-README.md` for info on that.
 
 # Testing Phrases (UNTESTED)
