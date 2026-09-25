@@ -6,6 +6,21 @@ TTS-based announcer inspired by Half Life's announcement system.
 
 This has been tested on WSL2 Ubuntu. You don't need a whole VM for it, look into Windows Subsystem for Linux.
 
+## Prerequisite for Linux users
+As much as I hate Docker, I do suggest using Docker for this. Shrimply because it relies on non-free packages.
+
+If you're using Debian or Ubuntu, you could enable these repos `contrib non-free` on your own computer, but I don't suggest it unless you already got it enabled for some reason.
+
+If you're using Arch or something else, then I suggest Docker.
+
+### How2dockerhalpme
+1. Install docker via your package manager
+2. Ensure the docker service is running
+3. Run this: `sudo docker run -it --name debian-trixie debian:trixie"
+4. Wowie you're now in the docker container! Do `apt update` and then `apt install git`.
+5. Carry on as usual. How do you get back into it when you exit? I dunno.
+
+
 ## Installing
 1. Clone this repository, duh.
 
