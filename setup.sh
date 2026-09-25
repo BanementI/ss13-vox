@@ -1,11 +1,11 @@
 #!/bin/bash
 
-apt install festival festlex-cmu festlex-poslex festlex-oald festvox-rablpc16k libestools2.5 unzip sox vorbis-tools ffmpeg python3 python3-pip -y
+apt install festival festlex-cmu festlex-poslex festlex-oald festvox-rablpc16k libestools2.5 unzip sox vorbis-tools ffmpeg python3 python3-pip sudo git -y
 
 # Doing build-tools
 echo "Installing build-tools"
 cd python-build-tools
-sudo -u "$SUDO_USER" pip install .
+sudo -u "$SUDO_USER" pip install . --break-system-packages # fuck you
 cd ..
 
 # Where the voices are stored!
