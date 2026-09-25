@@ -17,8 +17,11 @@ If you're using Arch or something else, then I suggest Docker.
 1. Install docker via your package manager
 2. Ensure the docker service is running
 3. Run this: `sudo docker run -it --name debian-trixie debian:trixie`
-4. Wowie you're now in the docker container! Do `apt update` and then `apt install git`.
-5. Carry on as usual. How do you get back into it when you exit? I dunno.
+4. Wowie you're now in the docker container! Do `apt update` and then `apt install git nano`. Or whatever text editor you want.
+5. `<editor> /etc/apt/sources.list.d/debian.sources`
+6. Under "Suites: trixie trixie-updates" is "Components: main". Make it like this: `Components: main contrib non-free`
+7. Do `apt update` again. 
+8. Carry on as usual. How do you get back into it when you exit? I dunno.
 
 
 ## Installing
