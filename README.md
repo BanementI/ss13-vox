@@ -14,6 +14,7 @@ If you're using Debian or Ubuntu, you could enable these repos `contrib non-free
 If you're using Arch or something else, then I suggest Docker.
 
 ### How2dockerhalpme
+NOTE: I am really shit as docker and there's very likely 10,000 better ways to do this, like a Dockerfile/compose.yml. I am tired bro. Ask a clanker or DIY.
 1. Install docker via your package manager
 2. Ensure the docker service is running
 3. Make a directory where you'll be grabbing the bullshit you generate, like `$HOME/ss13-vox-docker`.
