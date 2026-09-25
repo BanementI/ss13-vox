@@ -16,7 +16,7 @@ If you're using Arch or something else, then I suggest Docker.
 ### How2dockerhalpme
 1. Install docker via your package manager
 2. Ensure the docker service is running
-3. Run this: `sudo docker run -it --name debian-trixie debian:trixie"
+3. Run this: `sudo docker run -it --name debian-trixie debian:trixie`
 4. Wowie you're now in the docker container! Do `apt update` and then `apt install git`.
 5. Carry on as usual. How do you get back into it when you exit? I dunno.
 
